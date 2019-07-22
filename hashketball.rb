@@ -69,7 +69,7 @@ game = {
 
   :celtics => {
     :colors => ["green", "white"],
-    
+
     :players => {
       "Brandon Bass" => {
         :number => 30,
@@ -184,7 +184,7 @@ def team_colors_for(team, game)
     end
   end
 end
- 
+
 # Return both teams names:
 def what_teams?(game)
   team_arr = []
@@ -195,11 +195,11 @@ def what_teams?(game)
   teams_string = team_arr.join(" and ")
   puts "The teams playing are #{teams_string}."
 end
- 
+
 # Return all the player numbers for a team:
 def players_on_team(team, game)
   team_name = team.to_sym
-  
+
   team_members = []
   game[team_name][:players].each_key do |player|
     team_members << player
@@ -209,7 +209,7 @@ def players_on_team(team, game)
 
   puts "The players on the #{team_name} are #{team_string}."
 end
- 
+
 # Return all the stats for a player:
 def player_stats_for(player, game)
     game.each_value do |team|
@@ -221,7 +221,7 @@ def player_stats_for(player, game)
     end
   end
 end
- 
+
 # Return the rebounds for the player with the largest shoe size
 def rebounds_for_bigfoot(game)
   biggest_foot = ["Default Name", 0, 0] # [Player, Shoe, Rebounds]
@@ -235,7 +235,7 @@ def rebounds_for_bigfoot(game)
         biggest_foot[2] = player_hash[:stats][:rebounds]
       end
 
-    end 
+    end
   end
 
   bigfoot_name = biggest_foot[0]
@@ -245,7 +245,7 @@ def rebounds_for_bigfoot(game)
   puts "#{bigfoot_name} has the biggest foot (size #{bigfoot_shoe}!) and has made #{bigfoot_rebounds} rebounds. Yowzahz! Mad rigorous."
 
 end
- 
+
 rebounds_for_bigfoot(game)
 
 # Bonus Questions: define methods to return the answer to the following questions:
@@ -270,18 +270,18 @@ def most_points?(game)
   puts "The highest scorer is #{top_name} and his score is #{top_score}. Daayuum!! Mad rigorous."
 
 end
- 
+
 # Which team has the most points?
 def current_winning_team(game)
   score_keeper = {}
-  
+
   game.each do |team, team_info|
     score = 0
 
     team_info[:players].each_value do |player_info, info|
       score += player_info[:stats][:points]
     end
-    
+
     score_keeper[team] = score
 
   end
@@ -292,7 +292,7 @@ def current_winning_team(game)
   puts "The winning team is #{high_scorer} with a score of #{high_score}. Yasss."
 
 end
- 
+
 current_winning_team(game)
 
 # Which player has the longest name?
